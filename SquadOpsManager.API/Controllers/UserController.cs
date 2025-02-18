@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web.Resource;
 
 namespace SquadOpsManager.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -13,6 +16,7 @@ namespace SquadOpsManager.API.Controllers
             _logger = logger;
         }
 
+        [RequiredScope("User.Read")]
         [HttpGet(Name = "GetUser")]
         public string Get()
         {
