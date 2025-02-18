@@ -366,3 +366,6 @@ App.config
 
 #Sonarqube
 .sonarqube/
+
+#appsettings.json
+appsettings.json
